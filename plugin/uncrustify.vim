@@ -7,7 +7,11 @@
 if exists("g:uncrustify_bin_path")
     let s:bin_path = g:uncrustify_bin_path
 else
-    let s:bin_path = expand("<sfile>:p:h") . "/uncrustify"
+    if g:iswindows
+        let s:bin_path = expand("<sfile>:p:h") . "/uncrustify"
+    else
+        let s:bin_path = 'uncrustify'
+    endif
 endif
 
 if exists("g:uncrustify_cfg_path")
@@ -17,6 +21,10 @@ else
 endif
 
 func! s:Uncrustify(begin, end) range
+    if !executable(s:bin_path)
+        return
+    endif
+
     let language = (&l:ft == "objc") ? "oc" : &l:ft
     let cmd = s:bin_path . " -q -l " . language . " --frag -c " . s:cfg_path
     execute ":" . a:begin . "," . a:end . "! " . cmd
