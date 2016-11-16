@@ -22,6 +22,9 @@ endif
 
 func! s:Uncrustify(begin, end) range
     if !executable(s:bin_path)
+        echohl WarningMsg
+        echomsg "No find Uncrustify executable file, please intall!"
+        echohl None
         return
     endif
 
