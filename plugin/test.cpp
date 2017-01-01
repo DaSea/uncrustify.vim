@@ -13,6 +13,10 @@ void test() {
 }
 #endif
 
+int* (*hello)(int a, int b);
+int* a = nullptr;
+int* b = nullptr;
+int* hello(int* a, int b);
 #ifndef NULL
 #define KQ_LEN (100)
 #endif
@@ -53,14 +57,14 @@ void hello4() {
         b++;
     }
 
-    auto hdd = [] () {return (0); };
+    auto hdd = []() {return (0);};
     cout << "word" << endl;
 }
 
 class x { }
 class x1 { }
 
-enum foo {BAR = 15; };
+enum foo {BAR = 15;};
 enum foo2 {
     BAR = 15;
 };
@@ -100,7 +104,7 @@ public:
     // 变量
     int a;
     string b;
-    long   c;
+    long c;
 
     int a() {
         return (a);
@@ -116,7 +120,7 @@ public:
 
 private:
     float d;
-    std::list<int> lagg;
+    std::list<int>lagg;
 };
 
 void student::set(int a, long c,
