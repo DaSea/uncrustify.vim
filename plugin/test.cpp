@@ -13,6 +13,8 @@ void test() {
 }
 #endif
 
+// ²âÊÔÖĞÎÄ¸ñÊ½»¯ÂÒÂëµÄÎÊÌâ
+
 int* (*hello)(int a, int b);
 int* a = nullptr;
 int* b = nullptr;
@@ -101,7 +103,7 @@ public:
         c(111) { }
     virtual ~student();
 
-    // å˜é‡
+    // ±äÁ¿
     int a;
     string b;
     long c;
@@ -113,7 +115,7 @@ public:
         a = a;
     }
 
-    // é™æ€
+    // ¾²Ì¬
     static int number;
     void set(int a, long c,
         float c);
