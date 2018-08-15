@@ -3,7 +3,7 @@ Format source code;
 
 # executable setting
 ## windows
-Do nothing!
+Do nothing, because this has contain a executable file!
 
 ## linux
 1. install `uncrustify`;
@@ -22,4 +22,4 @@ Do nothing!
 
 # define keymap
 * format whole file: `nnoremap <Leader>ff :Uncrustify<CR>`
-* format selected context: `nnoremap <Leader>fr :'<,'>Uncrustify<CR>`
+* format selected context: `vnoremap <Leader>ff :'<,'>Uncrustify<CR>`

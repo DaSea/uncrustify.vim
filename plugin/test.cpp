@@ -13,9 +13,9 @@ void test() {
 }
 #endif
 
-// ²âÊÔÖĞÎÄ¸ñÊ½»¯ÂÒÂëµÄÎÊÌâ
+// æµ‹è¯•ä¸­æ–‡æ ¼å¼åŒ–ä¹±ç çš„é—®é¢˜
 
-int* (*hello)(int a, int b);
+int* (* hello)(int a, int b);
 int* a = nullptr;
 int* b = nullptr;
 int* hello(int* a, int b);
@@ -31,13 +31,14 @@ void hello1() {
 }
 void Hello() { }
 
-void hello2() {            }
+void hello2() { }
 
 void hello3()
 { }
-foo_t f = {1, 2};
-foo_t f = {1,
-           2};
+
+int f1 = {1, 2};
+
+int f = {1, 2};
 
 
 void hello4() {
@@ -63,10 +64,13 @@ void hello4() {
     cout << "word" << endl;
 }
 
-class x { }
-class x1 { }
+class x { };
+class x1 { };
+enum empytenum { };
 
-enum foo {BAR = 15;};
+enum foo {
+    BAR = 15;
+};
 enum foo2 {
     BAR = 15;
 };
@@ -75,8 +79,7 @@ enum foo2 {
     BAR = 15,
     hello = 12
 };
-sttruct foo3
-{
+struct foo3 {
     int ddd = 11;
     int bb  = 11;
     double hello = 12;
@@ -103,7 +106,7 @@ public:
         c(111) { }
     virtual ~student();
 
-    // ±äÁ¿
+    // å˜é‡
     int a;
     string b;
     long c;
@@ -115,7 +118,7 @@ public:
         a = a;
     }
 
-    // ¾²Ì¬
+    // é™æ€
     static int number;
     void set(int a, long c,
         float c);
