@@ -29,12 +29,12 @@ void hello() {
 void hello1() {
     cout << "hello" << endl;
 }
-void Hello() { }
+void Hello() {}
 
-void hello2() { }
+void hello2() {}
 
 void hello3()
-{ }
+{}
 
 int f1 = {1, 2};
 
@@ -64,9 +64,9 @@ void hello4() {
     cout << "word" << endl;
 }
 
-class x { };
-class x1 { };
-enum empytenum { };
+class x {};
+class x1 {};
+enum empytenum {};
 
 enum foo {
     BAR = 15;
@@ -103,7 +103,7 @@ public:
     student():
         a(10),
         b("hello"),
-        c(111) { }
+        c(111) {}
     virtual ~student();
 
     // 变量
@@ -125,7 +125,7 @@ public:
 
 private:
     float d;
-    std::list<int>lagg;
+    std::list<int> lagg;
 };
 
 void student::set(int a, long c,

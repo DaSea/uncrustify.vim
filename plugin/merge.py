@@ -42,15 +42,18 @@ with open("me.cfg", "r") as mecfg:
         # if it's not comment line, get key and value
         key = line[:line.find('=')].strip()
         value = line[line.find('=')+1:line.find('#')].strip()
-        comment = line[line.find('#')-1:].strip()
+        comment = line[line.find('#'):].strip()
+        print(comment)
         # find key in memap, and if find, replace value, or use new value
-        if key in memap:
-            value = memap[key]
+        # In the new configure, this key is removed!
+        if key not in memap:
+            continue
+            #  value = memap[key]
 
-        newline = key + "=" + value + comment
+        newline = key + "=" + value + "    " + comment
         cfglines.append(newline)
 
-# 输出
+# output
 with open("new.cfg", "w+") as newcfg:
     #  newcfg.writelines(cfglines)
     newcfg.writelines([line+'\n' for line in cfglines])
