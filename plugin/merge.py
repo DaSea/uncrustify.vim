@@ -15,23 +15,20 @@ def getKeyValue(line, result):
     value = line[line.find('=')+1:line.find('#')].strip()
     result[key] = value
 
-# this is current uncrustify's defaults confiture of new version
+# old config
 memap = {}
-with open("defaults.cfg", "r") as bkcfg:
+with open("me.cfg", "r") as bkcfg:
     for line in bkcfg.readlines():
         line = line.strip()
         if ((line == '') or (line[0]=='#')):
             continue
-        #  backlines.append(line)
         getKeyValue(line, memap)
 
-
-# this is your last configure version
+# this is current uncrustify's defaults confiture of new version
 cfglines = []
-with open("me.cfg", "r") as mecfg:
+with open("defaults.cfg", "r") as mecfg:
     for line in mecfg.readlines():
         line = line.strip()
-        #  if ((line == '') or (line[0]=='#')):
         if (line == ''):
             continue
 
@@ -41,21 +38,25 @@ with open("me.cfg", "r") as mecfg:
 
         # if it's not comment line, get key and value
         key = line[:line.find('=')].strip()
-        value = line[line.find('=')+1:line.find('#')].strip()
-        comment = line[line.find('#'):].strip()
-        print(comment)
         # find key in memap, and if find, replace value, or use new value
         # In the new configure, this key is removed!
         if key not in memap:
+            cfglines.append(line)
             continue
-            #  value = memap[key]
 
+        if (len(memap[key])>0) and (memap[key] != '""'):
+            value = memap[key]
+            #  print(key + " : " + value)
+        else:
+            value = line[line.find('=')+1:line.find('#')].strip()
+
+        comment = line[line.find('#'):].strip()
+        #  print(comment)
         newline = key + "=" + value + "    " + comment
         cfglines.append(newline)
 
 # output
 with open("new.cfg", "w+") as newcfg:
-    #  newcfg.writelines(cfglines)
     newcfg.writelines([line+'\n' for line in cfglines])
 
 if __name__ == '__main__':
