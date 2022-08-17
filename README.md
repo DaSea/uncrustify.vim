@@ -26,6 +26,8 @@ $ uncrustify --show-config > defaults.cfg
 $ python merge.py
 $ mv me.cfg me_old.cfg
 $ mv new.cfg me.cfg
+$ rm old.cfg
+$ mv me_old.cfg old.cfg
 ```
 
 # useage
